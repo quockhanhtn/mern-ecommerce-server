@@ -1,0 +1,64 @@
+@BASE_URL = http://localhost:3001/api/v1
+@RESOURCE = auth
+
+
+POST {{BASE_URL}}/{{RESOURCE}}/register
+content-type: application/json
+
+{
+    "firstName":"ddsf",
+    "lastName":"fdsfsdfsd",
+    "phone":"0123456689",
+    "email":"admdin@hk.com",
+    "password":"12"
+}
+
+####
+
+
+POST {{BASE_URL}}/{{RESOURCE}}/login
+content-type: application/json
+
+{
+  "username": "admin",
+  "password": "12"
+}
+
+###
+
+
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJhMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEiLCJpYXQiOjE2Mzk5ODk4NTUsImV4cCI6MTY0MDU5NDY1NX0.PycqaPhkoFMGbMCaDP7xjbqB-hVTfAOqkKkIQEd9qIw
+
+@RF_TOKEN = 2c527af0d66f99b4aea24dee6c409e5618870c2a07df2692541460ec26515b0da2e9ce2e17a3efbb3f1d4373ee80f658cafa97c6cde9ca3cf0525eb64e67a3c5
+
+POST {{BASE_URL}}/{{RESOURCE}}/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken":"{{RF_TOKEN}}"
+}
+
+###
+
+POST {{BASE_URL}}/{{RESOURCE}}/logout
+Content-Type: application/json
+
+{
+  "refreshToken":"{{RF_TOKEN}}"
+}
+
+###
+
+GET {{BASE_URL}}/me
+authorization: Bearer {{TOKEN}}
+
+###
+
+POST {{BASE_URL}}/auth/google
+content-type: application/json
+
+{
+  "accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzNDFhYmM0MDkyYjZmYzAzOGU0MDNjOTEwMjJkZDNlNDQ1MzliNTYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2Mzg3MDIyMDIsImF1ZCI6IjIzNTU2OTQwMTMyOC1saWIwOWZqa2MxMHIxNnI2bWJzY2xqbDR1bGI1MDQ5cS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExODQyMTEwOTE5Mzk3NDQ1MDQyMSIsImVtYWlsIjoienR6bnp6QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMzU1Njk0MDEzMjgtbGliMDlmamtjMTByMTZyNm1ic2Nsamw0dWxiNTA0OXEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiS2jDoW5oIEzDom0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKekw2alhkLU5KdFd5T3h3SGJsdWNaRUR2bXRITVN2ZE9ZLTY2emE9czk2LWMiLCJnaXZlbl9uYW1lIjoiS2jDoW5oIiwiZmFtaWx5X25hbWUiOiJMw6JtIiwiaWF0IjoxNjM4NzAyNTAyLCJleHAiOjE2Mzg3MDYxMDIsImp0aSI6Ijc0OGQyNDBlMDY1MjU5ZmM4MTgzNDQxZTdjYzZhMzRmOTU2MTY3NjUifQ.W3jnMK0L62tCyNBNavGON00mpB4W577RVIm5uwBXAyaCipFg-6FA3I_HQS9s9D0lEbCNcFRtJTSvDLTQtFRKVqK4FN4HD4KBOxmaPdiYoyB7sdbT-stoNvrWozsNQ6MNo9RMBatEyCjYAIclqZQteL-R3QPX4mecRwdN1oPyeu8HFm47KbDJzWwLw2Gys6to-wb4MRzxXdwQbAEeRHbXsYPoASXMAdvcz6_PyMJc6D3vjeRnF62cZAmgCCg5p85FzjfaQ7T9oNefr8v90YbkQSSkEgYllfjPOidUzrMnxwRI8UMsep9szDNa4VaW5GAxjCbYs7VodZloDOxJsDZ6zA"
+}
+
+###

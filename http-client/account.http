@@ -1,0 +1,57 @@
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJhMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEiLCJpYXQiOjE2Mzk5ODk4NTUsImV4cCI6MTY0MDU5NDY1NX0.PycqaPhkoFMGbMCaDP7xjbqB-hVTfAOqkKkIQEd9qIw
+
+
+@BASE_URL = http://localhost:3001/api/v1
+@RESOURCE = account
+
+GET {{BASE_URL}}/{{RESOURCE}}
+Authorization: Bearer {{TOKEN}}
+
+###
+
+PATCH {{BASE_URL}}/{{RESOURCE}}/change-password
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "currentPassword": "123",
+  "newPassword": "12"
+}
+
+###
+
+GET {{BASE_URL}}/{{RESOURCE}}/addresses
+Authorization: Bearer {{TOKEN}}
+
+###
+POST {{BASE_URL}}/{{RESOURCE}}/addresses
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+  
+{
+  "note": "My address",
+  "phone": "0987652315",
+  "name":"Khánh",
+  "type":"room",
+  "street": "123 Hữu Nghị",
+  "ward": "Phường Bình Thọ",
+  "district": "Quận Thủ Đức",
+  "province": "TP Hồ Chí Minh"
+}
+
+###
+PATCH  {{BASE_URL}}/{{RESOURCE}}/addresses/61b061f5159a70c0793dac56
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+  
+{
+  "note": "My address updated yy",
+  "phone": "09999991",
+  "name":"Khánh update yyy",
+  "type":"office update yyy",
+  "street": "123 Main St update yyy"
+}
+
+###
+DELETE  {{BASE_URL}}/{{RESOURCE}}/addresses/61b061f5159a70c0793dac56
+Authorization: Bearer {{TOKEN}}

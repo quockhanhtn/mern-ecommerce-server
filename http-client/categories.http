@@ -1,0 +1,19 @@
+@BASE_URL = http://localhost:3001/api/v1
+@RESOURCE = categories
+
+GET {{BASE_URL}}/{{RESOURCE}}
+
+###
+
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg1NGQ2M2YyYjNkMjczZDNhZTFkMTMiLCJpYXQiOjE2MzY0NjQ3OTcsImV4cCI6MTYzNzA2OTU5N30.QVmS4_pLs_XHoP-ADa7eymXebAeImjfqSazlvOhEAkc
+
+POST {{BASE_URL}}/{{RESOURCE}}
+authorization: Bearer {{TOKEN}}
+content-type: application/json
+
+{
+   "name": "test ssss",
+   "desc": "Hello"
+}
+
+####
